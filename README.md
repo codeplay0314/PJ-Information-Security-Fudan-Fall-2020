@@ -1,2 +1,2 @@
-# crpto
+# crypto
 Cryptograph (Information Security PJ)
