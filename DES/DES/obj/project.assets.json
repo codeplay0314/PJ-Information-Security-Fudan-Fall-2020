@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\study\\大三上\\信息安全原理\\PJ\\DES\\DES\\DES.csproj",
+      "projectUniqueName": "D:\\study\\大三上\\信息安全原理\\PJ\\crypto\\DES\\DES\\DES.csproj",
       "projectName": "DES",
-      "projectPath": "D:\\study\\大三上\\信息安全原理\\PJ\\DES\\DES\\DES.csproj",
+      "projectPath": "D:\\study\\大三上\\信息安全原理\\PJ\\crypto\\DES\\DES\\DES.csproj",
       "packagesPath": "C:\\Users\\codep\\.nuget\\packages\\",
-      "outputPath": "D:\\study\\大三上\\信息安全原理\\PJ\\DES\\DES\\obj\\",
+      "outputPath": "D:\\study\\大三上\\信息安全原理\\PJ\\crypto\\DES\\DES\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

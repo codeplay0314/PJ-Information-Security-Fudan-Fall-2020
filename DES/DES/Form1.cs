@@ -37,25 +37,25 @@ namespace DES
             }
             if (Key.Length != 64)
             {
-                Note1.Text = "Only 64bits 0/1 string acceptable!";
+                Note1.Text = "64bits 0/1 string required!";
                 res = false;
             }
             for (int i = 0; i < Key.Length; i++)
                 if (Key[i] != '0' && Key[i] != '1')
                 {
-                    Note1.Text = "Only 64bits 0/1 string acceptable!";
+                    Note1.Text = "64bits 0/1 string required!";
                     res = false;
                     break;
                 }
             if (IV.Length != 64)
             {
-                Note2.Text = "Only 64bits 0/1 string acceptable!";
+                Note2.Text = "64bits 0/1 string required!";
                 res = false;
             }
             for (int i = 0; i < IV.Length; i++)
                 if (IV[i] != '0' && IV[i] != '1')
                 {
-                    Note2.Text = "Only 64bits 0/1 string acceptable!";
+                    Note2.Text = "64bits 0/1 string required!";
                     res = false;
                     break;
                 }
@@ -95,11 +95,44 @@ namespace DES
                 return;
             }
 
+            Process rsa = new Process();
+            rsa.StartInfo.CreateNoWindow = true;         // 不创建新窗口
+            rsa.StartInfo.UseShellExecute = false;       // 不启用shell启动进程
+            rsa.StartInfo.RedirectStandardInput = true;  // 重定向输入
+            rsa.StartInfo.RedirectStandardOutput = true; // 重定向标准输出
+            rsa.StartInfo.RedirectStandardError = true;  // 重定向错误输出
+            rsa.StartInfo.FileName = "cmd.exe";
+            rsa.Start();
+            rsa.StandardInput.WriteLine("cd " + Application.StartupPath);
+            rsa.StandardInput.WriteLine("python RSA/encode.py");
+            rsa.StandardInput.WriteLine(Key);
+            string tmp = rsa.StandardOutput.ReadLine();
+            while (tmp != Key) tmp = rsa.StandardOutput.ReadLine();
+            Key = rsa.StandardOutput.ReadLine();
+            rsa.Close();
+            rsa.Start();
+            rsa.StandardInput.WriteLine("cd " + Application.StartupPath);
+            rsa.StandardInput.WriteLine("python RSA/encode.py");
+            rsa.StandardInput.WriteLine(IV);
+            tmp = rsa.StandardOutput.ReadLine();
+            while (tmp != IV) tmp = rsa.StandardOutput.ReadLine();
+            IV = rsa.StandardOutput.ReadLine();
+            rsa.Close();
+
+            tbKey.PasswordChar = '\0';
+            tbKey.Text = "RSA encoded: " + Key;
+            tbKey.ForeColor = Color.FromArgb(255, 140, 0, 0);
+            Show1.Text = "hide";
+            tbIV.PasswordChar = '\0';
+            tbIV.Text = "RSA encoded: " + IV;
+            tbIV.ForeColor = Color.FromArgb(255, 140, 0, 0);
+            Show2.Text = "hide";
+
             Process p = new Process();
-            p.StartInfo.CreateNoWindow = true;         // 不创建新窗口    
-            p.StartInfo.UseShellExecute = false;       // 不启用shell启动进程  
-            p.StartInfo.RedirectStandardInput = true;  // 重定向输入    
-            p.StartInfo.RedirectStandardOutput = true; // 重定向标准输出    
+            p.StartInfo.CreateNoWindow = true;         // 不创建新窗口
+            p.StartInfo.UseShellExecute = false;       // 不启用shell启动进程
+            p.StartInfo.RedirectStandardInput = true;  // 重定向输入
+            p.StartInfo.RedirectStandardOutput = true; // 重定向标准输出
             p.StartInfo.RedirectStandardError = true;  // 重定向错误输出
             p.StartInfo.FileName = "desCore.exe";
             p.Start();
@@ -132,6 +165,39 @@ namespace DES
             {
                 return;
             }
+
+            Process rsa = new Process();
+            rsa.StartInfo.CreateNoWindow = true;         // 不创建新窗口
+            rsa.StartInfo.UseShellExecute = false;       // 不启用shell启动进程
+            rsa.StartInfo.RedirectStandardInput = true;  // 重定向输入
+            rsa.StartInfo.RedirectStandardOutput = true; // 重定向标准输出
+            rsa.StartInfo.RedirectStandardError = true;  // 重定向错误输出
+            rsa.StartInfo.FileName = "cmd.exe";
+            rsa.Start();
+            rsa.StandardInput.WriteLine("cd " + Application.StartupPath);
+            rsa.StandardInput.WriteLine("python RSA/encode.py");
+            rsa.StandardInput.WriteLine(Key);
+            string tmp = rsa.StandardOutput.ReadLine();
+            while (tmp != Key) tmp = rsa.StandardOutput.ReadLine();
+            Key = rsa.StandardOutput.ReadLine();
+            rsa.Close();
+            rsa.Start();
+            rsa.StandardInput.WriteLine("cd " + Application.StartupPath);
+            rsa.StandardInput.WriteLine("python RSA/encode.py");
+            rsa.StandardInput.WriteLine(IV);
+            tmp = rsa.StandardOutput.ReadLine();
+            while (tmp != IV) tmp = rsa.StandardOutput.ReadLine();
+            IV = rsa.StandardOutput.ReadLine();
+            rsa.Close();
+
+            tbKey.PasswordChar = '\0';
+            tbKey.Text = "RSA encoded: " + Key;
+            tbKey.ForeColor = Color.FromArgb(255, 140, 0, 0);
+            Show1.Text = "hide";
+            tbIV.PasswordChar = '\0';
+            tbIV.Text = "RSA encoded: " + IV;
+            tbIV.ForeColor = Color.FromArgb(255, 140, 0, 0);
+            Show2.Text = "hide";
 
             Process p = new Process();
             p.StartInfo.CreateNoWindow = true;         // 不创建新窗口    

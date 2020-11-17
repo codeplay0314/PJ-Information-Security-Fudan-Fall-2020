@@ -43,6 +43,7 @@
             this.Note1 = new System.Windows.Forms.Label();
             this.Note2 = new System.Windows.Forms.Label();
             this.Note0 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -62,11 +63,11 @@
             this.ENCODE_BOTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.ENCODE_BOTTON.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.ENCODE_BOTTON.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.ENCODE_BOTTON.Location = new System.Drawing.Point(364, 598);
+            this.ENCODE_BOTTON.Location = new System.Drawing.Point(224, 598);
             this.ENCODE_BOTTON.Name = "ENCODE_BOTTON";
-            this.ENCODE_BOTTON.Size = new System.Drawing.Size(150, 46);
+            this.ENCODE_BOTTON.Size = new System.Drawing.Size(425, 46);
             this.ENCODE_BOTTON.TabIndex = 1;
-            this.ENCODE_BOTTON.Text = "ENCODE";
+            this.ENCODE_BOTTON.Text = "ENCODE (RSA Encrypted Channel)";
             this.ENCODE_BOTTON.UseVisualStyleBackColor = true;
             this.ENCODE_BOTTON.Click += new System.EventHandler(this.encodeBotton_Click);
             // 
@@ -112,11 +113,11 @@
             this.DECODE_BOTTOM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.DECODE_BOTTOM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.DECODE_BOTTOM.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.DECODE_BOTTOM.Location = new System.Drawing.Point(857, 598);
+            this.DECODE_BOTTOM.Location = new System.Drawing.Point(689, 598);
             this.DECODE_BOTTOM.Name = "DECODE_BOTTOM";
-            this.DECODE_BOTTOM.Size = new System.Drawing.Size(150, 46);
+            this.DECODE_BOTTOM.Size = new System.Drawing.Size(425, 46);
             this.DECODE_BOTTOM.TabIndex = 1;
-            this.DECODE_BOTTOM.Text = "DECODE";
+            this.DECODE_BOTTOM.Text = "DECODE (RSA Encrypted Channel)";
             this.DECODE_BOTTOM.UseVisualStyleBackColor = true;
             this.DECODE_BOTTOM.Click += new System.EventHandler(this.decodeBotton_Click);
             // 
@@ -203,11 +204,23 @@
             this.Note0.Size = new System.Drawing.Size(0, 31);
             this.Note0.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Big John", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(606, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 24);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "with RSA";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 795);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Note0);
             this.Controls.Add(this.Note2);
             this.Controls.Add(this.Note1);
@@ -247,6 +260,7 @@
         private System.Windows.Forms.Label Note1;
         private System.Windows.Forms.Label Note2;
         private System.Windows.Forms.Label Note0;
+        private System.Windows.Forms.Label label1;
     }
 }
 

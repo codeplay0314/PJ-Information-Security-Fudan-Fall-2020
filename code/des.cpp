@@ -244,6 +244,17 @@ namespace DES {
     }
 }
 
+void decodeRSA(string str, char *s) {
+    FILE* fp = NULL;
+    char cmd[50];
+    str = "python RSA/decode.py " + str;
+    strcpy(cmd, str.c_str());
+    if (fp = popen(cmd, "r")) {
+        fgets(s, 65, fp);
+        pclose(fp);
+    }
+}
+
 int main(int argc, char *argv[]) {
     int kase;
     char s[100];
@@ -266,8 +277,10 @@ int main(int argc, char *argv[]) {
         while (true) {
             system("cls");
             printf("%s\n", kase == 1? " - - -  Encoding - - -  ": " - - -  Decoding - - - ");
-            printf("Please enter the key (64 bits): ");
-            scanf("%s", s);
+            printf("Please enter the key (RSA encoded): ");
+            string codedS;
+            cin >> codedS;
+            decodeRSA(codedS, s);
             bool check = true;
             int n = strlen(s);
             if (n != 64) check = false;
@@ -283,8 +296,10 @@ int main(int argc, char *argv[]) {
         while (true) {
             system("cls");
             printf("%s\n", kase == 1? " - - -  Encoding - - -  ": " - - -  Decoding - - - ");
-            printf("Please enter initial vector (64 bits): ");
-            scanf("%s", s);
+            printf("Please enter initial vector (RSA encoded): ");
+            string codedS;
+            cin >> codedS;
+            decodeRSA(codedS, s);
             bool check = true;
             int n = strlen(s);
             if (n != 64) check = false;
